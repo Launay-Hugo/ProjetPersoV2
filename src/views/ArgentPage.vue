@@ -189,7 +189,7 @@ export default {
                 'Squats x20',
                 'Planche 30s',
                 'Fente x26',
-                'Pont 35ss',
+                'Pont 35s',
               ],
             },
             {

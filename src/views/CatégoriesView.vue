@@ -1,11 +1,7 @@
-<script setup>
-
-</script>
+<script setup></script>
 <template>
-    <main>
-<h1>categorie</h1>
-</main>
+  <main>
+    <h1>UNDER CONSTRUCTION</h1>
+  </main>
 </template>
-<style scoped>
-
-</style>
+<style scoped></style>

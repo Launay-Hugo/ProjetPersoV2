@@ -8,27 +8,28 @@ export default {
         {
           title: 'Programme',
           niveau: 'Bronze',
-          image: 'https://res.cloudinary.com/dskfvpsiu/image/upload/v1731593824/Bronze_fevq5c.png',
+          image: 'https://res.cloudinary.com/dskfvpsiu/image/upload/v1731685663/Bronze_lsn3jk.png',
         },
         {
           title: 'Programme',
           niveau: 'Argent',
-          image: 'https://res.cloudinary.com/dskfvpsiu/image/upload/v1731593810/Silver_dnynqa.png',
+          image: 'https://res.cloudinary.com/dskfvpsiu/image/upload/v1731685713/Silver_yrqbe3.png',
         },
         {
           title: 'Programme',
           niveau: 'Or',
-          image: 'https://res.cloudinary.com/dskfvpsiu/image/upload/v1731593879/Gold_axscli.png',
+          image: 'https://res.cloudinary.com/dskfvpsiu/image/upload/v1731685697/Gold_johfy7.png',
         },
         {
           title: 'Programme',
           niveau: 'Platine',
-          image: 'https://res.cloudinary.com/dskfvpsiu/image/upload/v1731593799/Platine_olo1up.png',
+          image:
+            'https://res.cloudinary.com/dskfvpsiu/image/upload/v1731685709/platinum_b8dbwq.png',
         },
         {
           title: 'Programme',
           niveau: 'Diamant',
-          image: 'https://res.cloudinary.com/dskfvpsiu/image/upload/v1731593805/diamond_f0daqu.png',
+          image: 'https://res.cloudinary.com/dskfvpsiu/image/upload/v1731685674/diamond_k98cvh.png',
         },
       ],
     }
@@ -57,8 +58,6 @@ export default {
       >
         <img :src="highlight.image" alt="Highlight Image" />
         <div class="highlight-info" v-if="currentIndex === index">
-          <h2>{{ highlight.title }}</h2>
-          <p>{{ highlight.niveau }}</p>
           <!-- Utilisez `path` pour naviguer vers la page de chaque niveau -->
           <RouterLink v-if="highlight.niveau" :to="`/programmes/${highlight.niveau}`">
             <p>Voir le programme {{ highlight.niveau }}</p>
