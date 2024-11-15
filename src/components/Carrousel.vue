@@ -126,11 +126,21 @@ export default {
   margin-top: 10px;
 }
 .carousel-controls button {
-  background: none;
+  background: #333;
   border: none;
   color: #ffffff;
   font-size: 24px;
   cursor: pointer;
+  border-radius: 50%;
+  width: 40px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background 0.3s;
+}
+.carousel-controls button:hover {
+  background: var(--yellow);
 }
 a {
   text-decoration: none;

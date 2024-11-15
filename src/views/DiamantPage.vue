@@ -390,7 +390,7 @@ export default {
 </script>
 <template>
   <div class="program-page">
-    <h1>Programme Argent - 4 Semaines</h1>
+    <h1>Programme Diamant - 4 Semaines</h1>
 
     <!-- Navigation entre les semaines -->
     <div class="navigation-buttons">

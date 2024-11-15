@@ -1,7 +1,6 @@
 <script>
 import { ref } from 'vue'
 import { useSearchStore } from '@/store'
-import { useRouter } from 'vue-router'
 
 export default {
   setup() {
@@ -10,7 +9,6 @@ export default {
 
     const handleSearch = () => {
       setSearchQuery(search.value)
-      router.push({ name: 'mouvements' })
     }
 
     return {
@@ -19,13 +17,6 @@ export default {
     }
   },
 }
-// const GlobalStore = inject('GlobalStore')
-// console.log(GlobalStore.userToken);
-
-// const disconnnectUser = ()=>{
-//  GlobalStore.changeUserInfos(null)
-//  $cookies.remove('userInfo')
-// }
 </script>
 
 <template>
@@ -33,23 +24,10 @@ export default {
     <input type="text" v-model="search" placeholder="Search for a movement" @input="handleSearch" />
 
     <div class="profile">
-      <div>
-        <RouterLink :to="{ name: 'login' }">
-          <!-- v-if="!GlobalStore.userInfos.value"> -->
-          <font-awesome-icon :icon="['far', 'user']" />
-          <p>Se connecter</p>
-        </RouterLink>
-        <div>
-          <!--- v-else class="disconnect"> -->
-          <!--   <div>
-        <RouterLink :to="{name:'profile'}">
-            <font-awesome-icon :icon="['far', 'user']" />
-            <p>{{GlobalStore.userInfos.value.username}}</p>
-          </RouterLink>
-            </div>
-          <font-awesome-icon :icon="['fas', 'sign-out-alt']" @click="disconnnectUser"/> -->
-        </div>
-      </div>
+      <RouterLink :to="{ name: 'login' }">
+        <font-awesome-icon :icon="['far', 'user']" />
+        <p>Se connecter</p>
+      </RouterLink>
     </div>
   </header>
 </template>
@@ -59,22 +37,40 @@ header {
   display: flex;
   justify-content: space-between;
   align-items: center;
+  padding: 10px;
+  background-color: var(--background-color); /* Replace with actual background color */
+  box-sizing: border-box;
+  width: 100%;
 }
+
+/* Styling for the search input */
 header input[type='text'] {
   padding: 10px;
   border-radius: 20px;
   border: none;
-  width: 300px;
+  width: 100%;
+  max-width: 300px;
+  box-sizing: border-box;
 }
-a {
+
+/* Profile section to be aligned to the right */
+.profile {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-left: auto;
+}
+
+.profile a {
   color: var(--yellow);
   text-decoration: none;
+  font-size: 16px;
+  display: flex;
+  align-items: center;
+  gap: 5px;
 }
-.username {
-  margin-right: 10px;
-}
-svg {
+
+.profile svg {
   color: white;
-  margin-left: 40px;
 }
 </style>

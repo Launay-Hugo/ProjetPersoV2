@@ -1,5 +1,5 @@
 <script>
-import Sidebar from './components/Sidebar.vue'
+import SideBar from './components/Sidebar.vue'
 import Header from './components/Header.vue'
 import { createSearchStore } from './store'
 
@@ -8,7 +8,7 @@ export default {
     createSearchStore()
   },
   components: {
-    Sidebar,
+    SideBar,
     Header,
   },
   data() {
@@ -27,7 +27,7 @@ export default {
 <template>
   <div id="app">
     <!-- Sidebar -->
-    <Sidebar v-if="sidebarOpen" />
+    <SideBar v-if="sidebarOpen" />
 
     <!-- Main Content -->
     <div :class="['main-content', { expanded: !sidebarOpen }]">
@@ -90,7 +90,7 @@ html {
 /* Sidebar Toggle Button */
 .toggle-sidebar {
   background-color: var(--lowgrey);
-  color: #ffffff;
+  color: var(--yellow);
   border: none;
   cursor: pointer;
   font-size: 16px;
