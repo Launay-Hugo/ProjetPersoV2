@@ -9,7 +9,7 @@ export default {
       {
         title: 'Squat',
         description:
-          "Tenez-vous droit , les pieds écartés , puis baissez votre corps jusqu'à ce que vos cuisses soient parallèles au sol. Cet exercice cible les cuisses (principalement quadriceps, adducteurs et ischio-jambiers) et les fessiers.",
+          "Tenez-vous droit, les pieds écartés, puis baissez votre corps jusqu'à ce que vos cuisses soient parallèles au sol. Cet exercice cible les cuisses et les fessiers.",
         image: 'https://res.cloudinary.com/dskfvpsiu/image/upload/v1731450789/squat_yyv2ar.gif',
       },
       {
@@ -129,10 +129,12 @@ export default {
           'https://res.cloudinary.com/dskfvpsiu/image/upload/v1731450787/mountainClimb_vf5zra.gif',
       },
     ])
+
     const filteredHighlights = ref([])
     const currentIndex = ref(0)
     const showText = ref(false)
 
+    // Filter movements based on the search query
     const filterMovements = () => {
       const query = searchQuery.value.toLowerCase()
       filteredHighlights.value = highlights.value.filter((item) =>
@@ -145,6 +147,7 @@ export default {
     const setActive = (index) => {
       currentIndex.value = index
     }
+
     const toggleText = () => {
       showText.value = !showText.value
     }
@@ -162,7 +165,7 @@ export default {
 
 <template>
   <main :class="{ 'center-content': filteredHighlights.length === 1 }">
-    <section class="highlight-carousel">
+    <section v-if="filteredHighlights.length > 0" class="highlight-carousel">
       <div class="carousel">
         <div
           v-for="(highlight, index) in filteredHighlights"
@@ -173,54 +176,53 @@ export default {
           <img :src="highlight.image" alt="Highlight Image" />
           <div class="highlight-info" v-if="currentIndex === index">
             <h2>{{ highlight.title }}</h2>
-
             <div class="arrow">
               <font-awesome-icon :icon="['fas', 'arrow-up']" @click="toggleText" />
-              <div v-if="showText" class="text-box">
-                {{ highlight.description }}
-              </div>
+              <div v-if="showText" class="text-box">{{ highlight.description }}</div>
             </div>
           </div>
         </div>
       </div>
     </section>
+
+    <p v-else class="no-results">Aucun exercice ne correspond à votre recherche.</p>
   </main>
 </template>
 
 <style scoped>
 main {
   width: 100%;
-  height: 250vh;
+  height: 100vh;
   background-color: var(--black);
 }
+
 .highlight-carousel {
   margin-top: 20px;
-  position: relative;
   width: 100%;
   display: flex;
-  flex-wrap: wrap;
   align-items: center;
-  margin-left: -40px;
-  max-height: 250vh;
+  justify-content: center;
   background-color: var(--black);
 }
+
 .carousel {
   display: flex;
   flex-wrap: wrap;
   width: 100%;
   justify-content: center;
 }
+
 .center-content {
   display: flex;
-  justify-content: flex-start;
+  justify-content: center;
   align-items: center;
-  max-height: 100vh;
+  min-height: 100vh;
 }
+
 .carousel-item {
   position: relative;
   width: 350px;
   height: 450px;
-
   opacity: 0.5;
   transition:
     transform 0.5s ease,
@@ -228,16 +230,19 @@ main {
   cursor: pointer;
   transform: scale(0.8);
 }
+
 .carousel-item.active {
   transform: scale(1);
   opacity: 1;
 }
+
 .carousel-item img {
   width: 100%;
   height: 100%;
   object-fit: cover;
   border-radius: 10px;
 }
+
 .highlight-info {
   position: absolute;
   bottom: 10px;
@@ -249,30 +254,25 @@ main {
   border-radius: 5px;
 }
 
-.carousel-controls {
-  display: flex;
-  justify-content: space-between;
-  width: 100px;
-  margin-top: 10px;
-}
 .arrow {
   text-align: center;
   font-size: 20px;
   margin-top: 5px;
 }
+
+.text-box {
+  margin-top: 5px;
+  color: #cccccc;
+}
+
 svg {
-  margin-bottom: 5px;
   color: var(--yellow);
 }
-.main-content.expanded {
-  display: flex;
-  flex-direction: column;
-  width: 170vh; /* Adjust width when sidebar is closed */
-  height: 100vh;
-  align-content: center;
 
-  background-color: var(--black);
-  font-size: +150%;
-  margin-left: 60px;
+.no-results {
+  color: #ffffff;
+  font-size: 18px;
+  text-align: center;
+  padding-top: 20px;
 }
 </style>

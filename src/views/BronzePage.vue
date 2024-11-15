@@ -39,7 +39,6 @@ export default {
                 'Squats x15',
                 'Pompes sur les genoux x10',
                 'Planche 2',
-                '',
               ],
             },
             {
@@ -51,7 +50,6 @@ export default {
                 'Pompe contre un mur x8',
                 'Planche latéral gauche 10s',
                 'Planche latéral droite 1',
-                '',
               ],
             },
           ],

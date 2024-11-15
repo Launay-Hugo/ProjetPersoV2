@@ -1,6 +1,7 @@
 <script>
 import { ref } from 'vue'
 import { useSearchStore } from '@/store'
+import { useRouter } from 'vue-router'
 
 export default {
   setup() {
@@ -9,6 +10,7 @@ export default {
 
     const handleSearch = () => {
       setSearchQuery(search.value)
+      router.push({ name: 'mouvements' })
     }
 
     return {
@@ -29,6 +31,7 @@ export default {
 <template>
   <header>
     <input type="text" v-model="search" placeholder="Search for a movement" @input="handleSearch" />
+
     <div class="profile">
       <div>
         <RouterLink :to="{ name: 'login' }">

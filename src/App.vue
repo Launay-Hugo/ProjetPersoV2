@@ -13,7 +13,7 @@ export default {
   },
   data() {
     return {
-      sidebarOpen: true, // Variable to track sidebar state (open/close)
+      sidebarOpen: true, // Track sidebar state (open/close)
     }
   },
   methods: {
@@ -23,6 +23,7 @@ export default {
   },
 }
 </script>
+
 <template>
   <div id="app">
     <!-- Sidebar -->
@@ -44,42 +45,78 @@ export default {
   </div>
 </template>
 
-<style>
+<style scoped>
 #app {
   display: flex;
+  height: 100vh; /* Full height of viewport */
   background-color: var(--black);
   color: #ffffff;
+  align-items: stretch; /* Ensure sidebar and main content stretch to full height */
 }
-.container {
-  margin-left: 160px;
+
+/* Sidebar Styling */
+.sidebar {
+  width: 240px;
+  background-color: var(--lowgrey);
+  padding: 20px;
+  box-sizing: border-box;
+  flex-shrink: 0; /* Prevent sidebar from shrinking */
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 100%; /* Full height of parent */
 }
+
 .main-content {
   flex: 1;
   padding: 20px;
-  transition: width 0.3s ease; /* Smooth transition */
+  overflow-y: auto; /* Allow scrolling if content overflows */
+  background-color: var(--black);
+  transition: margin-left 0.3s ease; /* Smooth transition for sidebar toggle */
 }
 
-/* When sidebar is closed, expand the main content */
 .main-content.expanded {
-  display: flex;
-  flex-direction: column;
-  width: 170vh; /* Adjust width when sidebar is closed */
-  max-height: 260vh;
-  align-content: center;
+  margin-left: 60px; /* Adjust this if sidebar closes or opens */
   background-color: var(--black);
-  margin-left: 90px;
-  font-size: 120%;
 }
-/* Toggle Button Style */
+
+/* Resetting body margins */
+body,
+html {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+}
+/* Sidebar Toggle Button */
 .toggle-sidebar {
-  background: none;
-  border: none;
+  background-color: var(--lowgrey);
   color: #ffffff;
+  border: none;
   cursor: pointer;
   font-size: 16px;
+  padding: 12px;
+  border-radius: 8px;
   position: fixed;
-  background-color: var(--lowgrey);
-  padding: 10px 10px;
-  border-radius: 10px;
+  top: 110px;
+  left: 60px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  transition:
+    background-color 0.3s ease,
+    color 0.3s ease; /* Smooth transition */
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+/* Hover Effect */
+.toggle-sidebar:hover {
+  background-color: #3a3a3a;
+  color: var(--yellow);
+}
+
+/* Icon Style (Optional) */
+.toggle-sidebar svg {
+  font-size: 18px; /* Adjust icon size */
+  color: inherit; /* Match button text color */
 }
 </style>

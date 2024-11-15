@@ -32,9 +32,9 @@ export default {
         },
       ],
       messages: {
-        Bronze: 'Programme pour Débutant conçu pour les personnes sans activité physique.  ',
+        Bronze: 'Programme pour Débutant conçu pour les personnes sans activité physique.',
         Argent:
-          ' Programme pour Débutant conçu pour les personnes ayant une activité physique faible.',
+          'Programme pour Débutant conçu pour les personnes ayant une activité physique faible.',
         Or: 'Programme intermédiaire conçu pour les personnes ayant une activité physique moyenne.',
         Platine:
           'Programme intermédiaire conçu pour les personnes ayant une activité physique régulière.',
@@ -64,6 +64,7 @@ export default {
   },
 }
 </script>
+
 <template>
   <section class="highlight-carousel">
     <div class="carousel">
@@ -75,7 +76,6 @@ export default {
       >
         <img :src="highlight.image" alt="Highlight Image" />
         <div class="highlight-info" v-if="currentIndex === index">
-          <!-- Utilisez `path` pour naviguer vers la page de chaque niveau -->
           <RouterLink v-if="highlight.niveau" :to="`/programmes/${highlight.niveau}`">
             <p>Voir le programme {{ highlight.niveau }}</p>
           </RouterLink>
@@ -83,7 +83,6 @@ export default {
       </div>
     </div>
 
-    <!-- Phrase dynamique en fonction du niveau sélectionné -->
     <div v-if="currentMessage" class="niveau-message">
       <p>{{ currentMessage }}</p>
       <RouterLink :to="`/programmes/${currentNiveau}`" class="view-program-link">
@@ -97,9 +96,10 @@ export default {
     </div>
   </section>
 </template>
+
 <style scoped>
 .highlight-carousel {
-  margin-top: 100px;
+  margin-top: 50px;
   position: relative;
   width: 100%;
   display: flex;
@@ -117,7 +117,6 @@ export default {
   position: relative;
   width: 250px;
   height: 350px;
-
   opacity: 0.5;
   transition:
     transform 0.5s ease,
@@ -144,31 +143,45 @@ export default {
   padding: 10px;
   border-radius: 5px;
 }
+.highlight-info a {
+  text-decoration: none;
+  color: var(--yellow);
+}
 .carousel-controls {
   display: flex;
-  justify-content: space-between;
-  width: 100px;
-  margin-top: 10px;
+  justify-content: center;
+  margin-top: 20px;
+  gap: 20px;
 }
 .carousel-controls button {
-  background: none;
+  background: #333;
   border: none;
   color: #ffffff;
   font-size: 24px;
   cursor: pointer;
+  border-radius: 50%;
+  width: 40px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background 0.3s;
 }
-a {
-  text-decoration: none;
-  color: var(--yellow);
+.carousel-controls button:hover {
+  background: var(--yellow);
 }
 .niveau-message {
-  margin-top: 100px;
-  height: 40px;
+  margin-top: 30px;
+  font-size: 18px;
+  color: #ffffff;
+  text-align: center;
 }
 .view-program-link {
-  display: flex;
-  justify-content: center;
-  align-items: center;
+  display: inline-block;
   margin-top: 10px;
+  color: var(--yellow);
+  text-decoration: underline;
+  font-weight: bold;
+  font-size: 16px;
 }
 </style>

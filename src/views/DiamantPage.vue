@@ -430,6 +430,7 @@ export default {
   margin-bottom: 20px;
 }
 
+/* Navigation Buttons Styling */
 .navigation-buttons {
   display: flex;
   justify-content: space-between;
@@ -454,6 +455,7 @@ export default {
   cursor: not-allowed;
 }
 
+/* Week Section Styling */
 .week-section {
   margin-bottom: 30px;
   margin-top: 40px;
@@ -466,6 +468,7 @@ export default {
   margin-bottom: 10px;
 }
 
+/* Week Days Grid */
 .week-days {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
