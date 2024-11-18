@@ -7,28 +7,32 @@ export default {
         {
           title: 'Programme',
           niveau: 'Bronze',
-          image: 'https://res.cloudinary.com/dskfvpsiu/image/upload/v1731685663/Bronze_lsn3jk.png',
+          image:
+            'https://res.cloudinary.com/dskfvpsiu/image/upload/v1731803368/troph%C3%A9eBronze_ak0fk3.png',
         },
         {
           title: 'Programme',
           niveau: 'Argent',
-          image: 'https://res.cloudinary.com/dskfvpsiu/image/upload/v1731685713/Silver_yrqbe3.png',
+          image:
+            'https://res.cloudinary.com/dskfvpsiu/image/upload/v1731803364/troph%C3%A9eArgent_wvdtli.png',
         },
         {
           title: 'Programme',
           niveau: 'Or',
-          image: 'https://res.cloudinary.com/dskfvpsiu/image/upload/v1731685697/Gold_johfy7.png',
+          image:
+            'https://res.cloudinary.com/dskfvpsiu/image/upload/v1731803377/troph%C3%A9Or_iqykwt.png',
         },
         {
           title: 'Programme',
           niveau: 'Platine',
           image:
-            'https://res.cloudinary.com/dskfvpsiu/image/upload/v1731685709/platinum_b8dbwq.png',
+            'https://res.cloudinary.com/dskfvpsiu/image/upload/v1731803375/Troph%C3%A9ePlatine_kco4hd.png',
         },
         {
           title: 'Programme',
           niveau: 'Diamant',
-          image: 'https://res.cloudinary.com/dskfvpsiu/image/upload/v1731685674/diamond_k98cvh.png',
+          image:
+            'https://res.cloudinary.com/dskfvpsiu/image/upload/v1731803373/troph%C3%A9eDiamant_zdgzve.png',
         },
       ],
       messages: {

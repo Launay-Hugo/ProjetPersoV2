@@ -48,7 +48,7 @@ const resetTimer = () => {
       <ul>
         <li>
           <RouterLink :to="{ name: 'home' }" :class="{ active: route.name === 'home' }"
-            >Home</RouterLink
+            >Accueil</RouterLink
           >
         </li>
         <li>
@@ -69,18 +69,25 @@ const resetTimer = () => {
       </ul>
     </nav>
 
-    <!-- Affichage du chronomètre -->
-    <div class="timer">
-      <h2>Chronomètre</h2>
-      <p class="time-display">
-        {{ String(hours).padStart(2, '0') }}:{{ String(minutes).padStart(2, '0') }}:{{
-          String(seconds).padStart(2, '0')
-        }}
-      </p>
-      <div class="timer-controls">
-        <button @click="startTimer" :disabled="isRunning">Démarrer</button>
-        <button @click="stopTimer" :disabled="!isRunning">Arrêter</button>
-        <button @click="resetTimer">Réinitialiser</button>
+    <!-- Timer Section -->
+    <div id="app" class="timer-container">
+      <img
+        src="https://res.cloudinary.com/dskfvpsiu/image/upload/v1731847567/chrono_fsno22.png"
+        alt="Chibi with Timer"
+        class="timer-image"
+      />
+      <div class="timer">
+        <h2>Chronomètre</h2>
+        <p class="time-display">
+          {{ String(hours).padStart(2, '0') }}:{{ String(minutes).padStart(2, '0') }}:{{
+            String(seconds).padStart(2, '0')
+          }}
+        </p>
+        <div class="timer-controls">
+          <button @click="startTimer" :disabled="isRunning">Démarrer</button>
+          <button @click="stopTimer" :disabled="!isRunning">Arrêter</button>
+          <button @click="resetTimer">Réinitialiser</button>
+        </div>
       </div>
     </div>
 
@@ -97,7 +104,6 @@ const resetTimer = () => {
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  height: 100vh;
 }
 
 .logo {
@@ -125,62 +131,76 @@ nav a {
   border-radius: 8px;
 }
 
-/* Style pour le lien actif */
 nav a.active {
   background-color: var(--yellow);
   color: black;
   font-weight: bold;
 }
 
-/* Effet de survol */
 nav a:hover {
   background-color: var(--lowgrey);
 }
 
-/* Chronomètre Styles */
-.timer {
-  margin-top: 100px;
+.timer-container {
   text-align: center;
-  color: #fff;
+  margin: 20px auto; /* Center the container */
+}
+
+.timer-image {
+  display: block;
+  max-width: 100%; /* Ensure the image is responsive */
+  height: auto;
+  margin-bottom: 20px; /* Add space below the image */
+  border-radius: 20px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Optional shadow for aesthetic */
+}
+
+.timer {
+  background: rgba(255, 255, 255, 0.9); /* Slightly opaque white background */
+  border-radius: 12px;
+  padding: 15px 20px;
+  text-align: center;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
 }
 
 .timer h2 {
-  color: var(--yellow);
-  font-size: 20px;
+  font-size: 18px;
+  color: #333;
   margin-bottom: 10px;
 }
 
 .time-display {
   font-size: 24px;
   font-weight: bold;
+  color: #333;
+  border: 2px solid var(--yellow);
+  border-radius: 8px;
+  padding: 5px 10px;
   margin-bottom: 10px;
+  display: inline-block;
   font-family: var(--roboto);
 }
 
 .timer-controls button {
-  background-color: green;
-  color: #fff;
-  border: none;
+  margin: 5px;
   padding: 8px 12px;
-  margin: 0 5px;
   font-size: 14px;
   cursor: pointer;
+  border: none;
   border-radius: 5px;
-  transition: background-color 0.3s;
+  background-color: var(--yellow);
+  color: white;
+  transition: background-color 0.3s ease;
+  font-family: var(--faculty);
+}
+
+.timer-controls button:hover {
+  background-color: orange;
 }
 
 .timer-controls button:disabled {
   background-color: #ccc;
   cursor: not-allowed;
-}
-
-.timer-controls button:nth-child(2) {
-  background-color: red;
-}
-
-.timer-controls button:nth-child(3) {
-  background-color: var(--lowgrey);
-  border: solid 1px black;
 }
 
 .logout {

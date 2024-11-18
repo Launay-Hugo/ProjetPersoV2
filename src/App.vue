@@ -1,26 +1,15 @@
-<script>
-import SideBar from './components/Sidebar.vue'
+<script setup>
+import SideBar from './components/SideBar.vue'
 import Header from './components/Header.vue'
 import { createSearchStore } from './store'
+import { ref } from 'vue'
 
-export default {
-  setup() {
-    createSearchStore()
-  },
-  components: {
-    SideBar,
-    Header,
-  },
-  data() {
-    return {
-      sidebarOpen: true, // Track sidebar state (open/close)
-    }
-  },
-  methods: {
-    toggleSidebar() {
-      this.sidebarOpen = !this.sidebarOpen
-    },
-  },
+createSearchStore()
+
+const sidebarOpen = ref(true)
+
+const toggleSidebar = () => {
+  sidebarOpen.value = !sidebarOpen.value
 }
 </script>
 
@@ -33,7 +22,7 @@ export default {
     <div :class="['main-content', { expanded: !sidebarOpen }]">
       <!-- Toggle Button for Sidebar -->
       <button class="toggle-sidebar" @click="toggleSidebar">
-        {{ sidebarOpen ? 'Close Sidebar' : 'Open Sidebar' }}
+        {{ sidebarOpen ? 'Ferme le Menu' : 'Ouvre le Menu' }}
       </button>
 
       <!-- Other Components -->
@@ -52,19 +41,6 @@ export default {
   background-color: var(--black);
   color: #ffffff;
   align-items: stretch; /* Ensure sidebar and main content stretch to full height */
-}
-
-/* Sidebar Styling */
-.sidebar {
-  width: 240px;
-  background-color: var(--lowgrey);
-  padding: 20px;
-  box-sizing: border-box;
-  flex-shrink: 0; /* Prevent sidebar from shrinking */
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  height: 100%; /* Full height of parent */
 }
 
 .main-content {

@@ -59,4 +59,17 @@
   .day li {
     font-size: 12px;
   }
+
+  .timer-container {
+    max-width: 90%;
+  }
+
+  .timer {
+    width: 100%; /* Adjust the timer width for smaller screens */
+  }
+
+  .timer-controls button {
+    padding: 5px 8px;
+    font-size: 12px;
+  }
 }

@@ -1,14 +1,11 @@
 <script setup>
-import Carrousel from '@/components/Carrousel.vue';
-import Categories from '@/components/Categories.vue';
-import PopularMouvement from '@/components/PopularMouvement.vue';
+import Carrousel from '@/components/Carrousel.vue'
+import Categories from '@/components/Categories.vue'
+import PopularMouvement from '@/components/PopularMouvement.vue'
 </script>
 <template>
-    <Carrousel/>
-      <Categories />
-      <PopularMouvement />
-
+  <Carrousel />
+  <Categories />
+  <PopularMouvement />
 </template>
-<style scoped>
-
-</style>
+<style scoped></style>

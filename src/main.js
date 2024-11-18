@@ -3,6 +3,7 @@ import './assets/main.css'
 import { createApp } from 'vue'
 import App from './App.vue'
 import router from './router'
+import { createSearchStore } from './store'
 
 import { library } from '@fortawesome/fontawesome-svg-core'
 import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome'
@@ -31,6 +32,9 @@ library.add(
 )
 
 const app = createApp(App).component('font-awesome-icon', FontAwesomeIcon)
+
+const searchStore = createSearchStore()
+app.provide('searchStore', searchStore)
 
 app.use(router)
 

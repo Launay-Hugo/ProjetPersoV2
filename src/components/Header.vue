@@ -1,27 +1,29 @@
-<script>
-import { ref } from 'vue'
+<script setup>
+import { ref, watch } from 'vue'
 import { useSearchStore } from '@/store'
+import { useRouter } from 'vue-router'
 
-export default {
-  setup() {
-    const { setSearchQuery } = useSearchStore()
-    const search = ref('')
+const { setSearchQuery } = useSearchStore()
+const search = ref('')
+const router = useRouter()
 
-    const handleSearch = () => {
-      setSearchQuery(search.value)
-    }
-
-    return {
-      search,
-      handleSearch,
-    }
-  },
-}
+// Surveiller les changements de la recherche
+watch(search, (newSearch) => {
+  if (newSearch) {
+    router.push({ name: 'mouvements', query: { q: newSearch } })
+    setSearchQuery(newSearch)
+  }
+})
 </script>
 
 <template>
   <header>
-    <input type="text" v-model="search" placeholder="Search for a movement" @input="handleSearch" />
+    <input
+      type="text"
+      v-model="search"
+      placeholder="Rechercher un mouvement"
+      @input="setSearchQuery(search)"
+    />
 
     <div class="profile">
       <RouterLink :to="{ name: 'login' }">

@@ -1,52 +1,53 @@
-<script>
-import { RouterLink } from 'vue-router'
-export default {
-  data() {
-    return {
-      currentIndex: 0,
-      highlights: [
-        {
-          title: 'Programme',
-          niveau: 'Bronze',
-          image: 'https://res.cloudinary.com/dskfvpsiu/image/upload/v1731685663/Bronze_lsn3jk.png',
-        },
-        {
-          title: 'Programme',
-          niveau: 'Argent',
-          image: 'https://res.cloudinary.com/dskfvpsiu/image/upload/v1731685713/Silver_yrqbe3.png',
-        },
-        {
-          title: 'Programme',
-          niveau: 'Or',
-          image: 'https://res.cloudinary.com/dskfvpsiu/image/upload/v1731685697/Gold_johfy7.png',
-        },
-        {
-          title: 'Programme',
-          niveau: 'Platine',
-          image:
-            'https://res.cloudinary.com/dskfvpsiu/image/upload/v1731685709/platinum_b8dbwq.png',
-        },
-        {
-          title: 'Programme',
-          niveau: 'Diamant',
-          image: 'https://res.cloudinary.com/dskfvpsiu/image/upload/v1731685674/diamond_k98cvh.png',
-        },
-      ],
-    }
+<script setup>
+import { ref } from 'vue'
+
+// State for current index and highlights
+const currentIndex = ref(0)
+const highlights = [
+  {
+    title: 'Programme',
+    niveau: 'Bronze',
+    image:
+      'https://res.cloudinary.com/dskfvpsiu/image/upload/v1731803368/troph%C3%A9eBronze_ak0fk3.png',
   },
-  methods: {
-    next() {
-      this.currentIndex = (this.currentIndex + 1) % this.highlights.length
-    },
-    prev() {
-      this.currentIndex = (this.currentIndex - 1 + this.highlights.length) % this.highlights.length
-    },
-    setActive(index) {
-      this.currentIndex = index
-    },
+  {
+    title: 'Programme',
+    niveau: 'Argent',
+    image:
+      'https://res.cloudinary.com/dskfvpsiu/image/upload/v1731803364/troph%C3%A9eArgent_wvdtli.png',
   },
+  {
+    title: 'Programme',
+    niveau: 'Or',
+    image: 'https://res.cloudinary.com/dskfvpsiu/image/upload/v1731803377/troph%C3%A9Or_iqykwt.png',
+  },
+  {
+    title: 'Programme',
+    niveau: 'Platine',
+    image:
+      'https://res.cloudinary.com/dskfvpsiu/image/upload/v1731803375/Troph%C3%A9ePlatine_kco4hd.png',
+  },
+  {
+    title: 'Programme',
+    niveau: 'Diamant',
+    image:
+      'https://res.cloudinary.com/dskfvpsiu/image/upload/v1731803373/troph%C3%A9eDiamant_zdgzve.png',
+  },
+]
+
+const next = () => {
+  currentIndex.value = (currentIndex.value + 1) % highlights.length
+}
+
+const prev = () => {
+  currentIndex.value = (currentIndex.value - 1 + highlights.length) % highlights.length
+}
+
+const setActive = (index) => {
+  currentIndex.value = index
 }
 </script>
+
 <template>
   <section class="highlight-carousel">
     <div class="carousel">
@@ -107,7 +108,7 @@ export default {
 .carousel-item img {
   width: 100%;
   height: 100%;
-  object-fit: cover;
+  object-fit: contain;
   border-radius: 10px;
 }
 .highlight-info {
