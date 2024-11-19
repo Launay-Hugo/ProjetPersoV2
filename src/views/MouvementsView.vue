@@ -151,18 +151,19 @@ main {
   background-color: var(--black);
   padding: 10px;
   border-radius: 5px;
+  font-size: 20px;
+  font-family: var(--faculty);
 }
 .highlight-info:hover {
   transform: translateY(-5px);
   box-shadow: 0 6px 12px rgba(0, 0, 0, 0.4);
-  max-height: 100vh;
 }
 
 .arrow {
   display: flex;
   justify-content: space-between;
   text-align: center;
-  font-size: 20px;
+  font-size: 25px;
 }
 
 .text-box {
