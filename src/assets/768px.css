@@ -1,0 +1,75 @@
+@media (max-width: 768px) {
+  /* Adjustments for small screens */
+  #app {
+    flex-direction: column;
+  }
+  .sidebar {
+    width: 100%;
+    margin-bottom: 20px;
+  }
+  .main-content {
+    margin-left: 0;
+    width: 100%;
+  }
+  .toggle-sidebar {
+    font-size: 14px;
+    padding: 8px;
+    left: 10px;
+    top: 10px;
+  }
+  .container {
+    margin: 0;
+    padding: 10px;
+  }
+  /* carrousel */
+  .carousel-item {
+    width: 250px;
+    height: 350px;
+  }
+  .highlight-info {
+    font-size: 14px;
+  }
+  /* programme */
+  .carousel-item {
+    width: 180px;
+    height: 250px;
+  }
+  .niveau-message {
+    font-size: 16px;
+  }
+  .carousel-controls button {
+    width: 35px;
+    height: 35px;
+    font-size: 20px;
+  }
+  /* semaines*/
+  .week-days {
+    grid-template-columns: 1fr 1fr; /* Two columns */
+  }
+  .navigation-buttons button {
+    font-size: 14px;
+    padding: 8px 12px;
+  }
+  .day {
+    padding: 10px;
+  }
+  .day h3 {
+    font-size: 1em;
+  }
+  .day li {
+    font-size: 12px;
+  }
+
+  .timer-container {
+    max-width: 90%;
+  }
+
+  .timer {
+    width: 100%; /* Adjust the timer width for smaller screens */
+  }
+
+  .timer-controls button {
+    padding: 5px 8px;
+    font-size: 12px;
+  }
+}

@@ -1,0 +1,67 @@
+@media (min-width: 2560px) {
+  /* 4K screens */
+  /* Adjustments for very large screens */
+  #app {
+    max-width: 85vw;
+    margin: 0 auto;
+    padding: 40px;
+    font-size: 120%;
+  }
+
+  .container {
+    margin-left: 240px; /* Wider sidebar */
+    padding: 40px; /* More padding in main container */
+  }
+
+  .main-content {
+    padding: 40px;
+    font-size: 130%; /* Increase font size */
+  }
+
+  /* Sidebar styling */
+  .sidebar {
+    width: 300px;
+    padding: 30px;
+  }
+
+  /* Larger toggle button */
+  .toggle-sidebar {
+    font-size: 18px;
+    padding: 12px 15px;
+  }
+
+  /* carrousel  */
+  .carousel-item {
+    width: 400px;
+    height: 500px;
+  }
+  main {
+    max-width: 85vw;
+    margin: 0 auto;
+  }
+  .highlight-info {
+    font-size: 18px;
+  }
+  /* programme */
+  .carousel-item {
+    width: 300px;
+    height: 400px;
+  }
+  .niveau-message {
+    font-size: 20px;
+  }
+  .carousel-controls button {
+    width: 50px;
+    height: 50px;
+    font-size: 28px;
+  }
+  /* semaines */
+  .program-page {
+    max-width: 1200px;
+    font-size: 18px;
+  }
+  .navigation-buttons button {
+    font-size: 18px;
+    padding: 12px 24px;
+  }
+}

@@ -1,0 +1,98 @@
+@media (max-width: 480px) {
+  /* Adjustments for very small screens */
+  /* side bar */
+  .toggle-sidebar {
+    font-size: 12px;
+    padding: 6px;
+  }
+
+  .main-content.expanded {
+    font-size: 90%;
+    margin-left: 0;
+  }
+  .sidebar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 80%;
+    height: 100%;
+    transform: translateX(-100%);
+    transition: transform 0.3s ease;
+    z-index: 1000;
+  }
+
+  /* Show sidebar when isOpen is true */
+  .sidebar[open] {
+    transform: translateX(0);
+  }
+
+  /* carrousel */
+  .carousel-item {
+    width: 100%;
+    height: auto;
+    max-width: 320px;
+  }
+  .carousel {
+    flex-direction: column;
+  }
+  .highlight-info {
+    font-size: 12px;
+  }
+  .no-results {
+    font-size: 16px;
+  }
+  .arrow {
+    font-size: 18px;
+  }
+
+  /* programmes */
+  .carousel {
+    flex-direction: column;
+  }
+  .carousel-item {
+    width: 100%;
+    max-width: 320px;
+    height: auto;
+    margin-bottom: 20px;
+  }
+  .niveau-message {
+    font-size: 14px;
+  }
+  .view-program-link {
+    font-size: 14px;
+  }
+  .carousel-controls {
+    gap: 10px;
+  }
+  .carousel-controls button {
+    width: 30px;
+    height: 30px;
+    font-size: 18px;
+  }
+  /* semaines */
+  .program-page {
+    padding: 10px;
+    font-size: 14px;
+  }
+  .week-days {
+    grid-template-columns: 1fr; /* Single column */
+  }
+  .navigation-buttons {
+    flex-direction: column;
+    gap: 10px;
+  }
+  .navigation-buttons button {
+    width: 100%;
+    font-size: 12px;
+    padding: 8px;
+  }
+  .day {
+    padding: 8px;
+  }
+  .day h3 {
+    font-size: 0.9em;
+  }
+  .day li {
+    font-size: 12px;
+  }
+}

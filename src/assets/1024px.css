@@ -1,0 +1,45 @@
+@media (max-width: 1024px) {
+  /* Adjustments for medium screens */
+  /* side bar */
+  .container {
+    margin-left: 120px;
+  }
+  .main-content.expanded {
+    margin-left: 40px;
+    width: calc(100% - 40px);
+  }
+  .toggle-sidebar {
+    font-size: 14px;
+    padding: 8px;
+  }
+
+  /* carrousel */
+
+  .carousel-item {
+    width: 300px;
+    height: 400px;
+  }
+  .highlight-info {
+    font-size: 16px;
+  }
+  /* programme */
+  .carousel-item {
+    width: 220px;
+    height: 300px;
+  }
+  .highlight-info {
+    font-size: 14px;
+  }
+  /* semaines */
+  .program-page {
+    max-width: 700px;
+    padding: 15px;
+  }
+  .day ul {
+    padding-left: 15px;
+  }
+  .navigation-buttons button {
+    font-size: 14px;
+    padding: 8px 16px;
+  }
+}
