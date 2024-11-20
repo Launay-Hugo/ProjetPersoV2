@@ -101,11 +101,11 @@ const setActive = (index) => {
 }
 .carousel-item {
   position: relative;
-  flex: 1 1 calc(20% - 20px); /* Largeur de base : 20% du conteneur, moins l'espacement */
-  max-width: 250px; /* Limite la largeur maximale */
-  min-width: 150px; /* Largeur minimale pour les petits écrans */
+  flex: 1 1 calc(20% - 20px);
+  max-width: 250px;
+  min-width: 150px;
   height: auto;
-  aspect-ratio: 1 / 1.4; /* Ratio d'image */
+  aspect-ratio: 1 / 1.4;
   opacity: 0.5;
   transition:
     transform 0.5s ease,
@@ -130,17 +130,17 @@ const setActive = (index) => {
   bottom: 0;
   left: 0;
   width: 100%;
-  height: 15%; /* Ajuste à un pourcentage de la hauteur du parent */
+  height: 15%;
   background-color: rgba(0, 0, 0, 0.6);
   color: #ffffff;
   display: flex;
   justify-content: center;
   align-items: center;
-  font-size: calc(0.8rem + 0.3vw); /* Taille de police adaptative */
+  font-size: calc(0.8rem + 0.3vw);
   padding: 5px;
   border-bottom-left-radius: 10px;
   border-bottom-right-radius: 10px;
-  box-sizing: border-box; /* Inclut le padding dans la taille */
+  box-sizing: border-box;
   text-align: center;
 }
 .carousel-controls {

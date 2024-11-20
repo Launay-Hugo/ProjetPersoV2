@@ -21,7 +21,6 @@ const incrementHighlightCount = (id) => {
   const highlight = highlights.value.find((h) => h.id === id)
   if (highlight) {
     highlight.searchCount += 1
-    // console.log(`Incrémentation : ${highlight.title} -> ${highlight.searchCount}`) // Debug
   }
 }
 
@@ -29,56 +28,58 @@ const updateFilteredHighlights = () => {
   const query = searchQuery.value.toLowerCase().trim()
 
   if (!query) {
-    // Si l'input est vide, afficher tous les mouvements
     filteredHighlights.value = [...highlights.value]
   } else {
-    // Sinon, filtrer les mouvements sans incrémenter
     filteredHighlights.value = highlights.value.filter((item) =>
       item.title.toLowerCase().includes(query),
     )
   }
-
-  // console.log('Filtered Highlights:', filteredHighlights.value) //
 }
 
-// Regarder les changements dans la recherche
 watch(searchQuery, updateFilteredHighlights, { immediate: true })
 
 const setActive = (index) => {
   currentIndex.value = index
 }
 
-const toggleText = () => {
-  showText.value = !showText.value
+const toggleText = (index) => {
+  if (currentIndex.value === index && showText.value) {
+    showText.value = false
+  } else {
+    currentIndex.value = index
+    showText.value = true
+  }
 }
 </script>
 
 <template>
   <main :class="{ 'center-content': filteredHighlights.length === 1 }">
-    <section v-if="filteredHighlights.length > 0" class="highlight-carousel">
-      <div class="carousel">
+    <section v-if="filteredHighlights.length > 0" class="highlight-mouvements">
+      <div class="mouvements">
         <div
           v-for="(highlight, index) in filteredHighlights"
           :key="highlight.id"
-          :class="['carousel-item', { active: currentIndex === index }]"
+          :class="['mouvements-item', { active: currentIndex === index }]"
           @click="
             () => {
               setActive(index)
-              incrementHighlightCount(highlight.id) // Incrémenter lors du clic
+              incrementHighlightCount(highlight.id)
             }
           "
         >
-          <img :src="highlight.image" alt="Highlight Image" />
-          <div class="highlight-info" v-if="currentIndex === index">
-            <div class="arrow" @click="toggleText">
-              <h2>
-                {{ highlight.title }}
-              </h2>
-              <font-awesome-icon :icon="['fas', 'arrow-up']" />
+          <div class="image-container" @click="toggleText(index)">
+            <img
+              v-if="currentIndex !== index || !showText"
+              :src="highlight.image"
+              alt="Highlight Image"
+            />
+            <div v-else class="description-box">
+              <p>{{ highlight.description }}</p>
+              <button class="close-button" @click.stop="toggleText(index)">Fermer</button>
             </div>
-            <div v-if="showText" class="text-box" @click="toggleText">
-              {{ highlight.description }}
-            </div>
+          </div>
+          <div class="title">
+            <h3>{{ highlight.title }}</h3>
           </div>
         </div>
       </div>
@@ -91,88 +92,127 @@ const toggleText = () => {
 <style scoped>
 main {
   width: 100%;
-  height: 100vh;
+  min-height: 100vh;
   background-color: var(--black);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 20px;
+  box-sizing: border-box;
 }
 
-.highlight-carousel {
+.highlight-mouvements {
   margin-top: 20px;
   width: 100%;
   display: flex;
   align-items: center;
   justify-content: center;
-  background-color: var(--black);
 }
 
-.carousel {
+.mouvements {
   display: flex;
   flex-wrap: wrap;
   width: 100%;
   justify-content: center;
+  gap: 20px;
 }
 
-.center-content {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  min-height: 100vh;
-}
-
-.carousel-item {
+.mouvements-item {
   position: relative;
-  width: 350px;
-  height: 450px;
-  opacity: 0.5;
+  width: 300px;
+  height: 400px;
   transition:
     transform 0.5s ease,
-    opacity 0.5s ease;
+    opacity 0.5s ease,
+    box-shadow 0.3s ease;
   cursor: pointer;
-  transform: scale(0.8);
+  transform: scale(0.9);
+  border-radius: 12px;
+  overflow: hidden;
+  background-color: var(--lowgrey);
 }
 
-.carousel-item.active {
+.mouvements-item.active {
   transform: scale(1);
   opacity: 1;
+  box-shadow: 0px 8px 20px rgba(0, 0, 0, 0.5);
+  height: auto;
 }
 
-.carousel-item img {
+.image-container {
+  display: flex;
+  flex-direction: column;
+}
+
+.image-container img {
   width: 100%;
-  height: 100%;
+  height: 350px; /* Hauteur fixe pour uniformité */
   object-fit: cover;
-  border-radius: 10px;
+  border-bottom: 3px solid var(--yellow);
 }
 
-.highlight-info {
-  position: absolute;
-  bottom: 10px;
-  left: 10px;
-  right: 10px;
-  color: #ffffff;
-  background-color: var(--black);
-  padding: 10px;
-  border-radius: 10px;
-  font-size: 20px;
+.title {
+  text-align: center;
+  margin-top: 15px;
+  margin-bottom: 10px;
+  font-size: 18px;
+  font-weight: bold;
+  color: var(--yellow);
   font-family: var(--faculty);
 }
-.highlight-info:hover {
-  transform: translateY(-5px);
-  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.4);
-}
 
-.arrow {
+.description-box {
   display: flex;
+  flex-direction: column;
   justify-content: space-between;
-  text-align: center;
-  font-size: 22px;
+  padding: 20px;
+  min-height: 200px;
+  background-color: var(--lowgrey);
+  color: #fff;
+  text-align: justify;
+  border-radius: 10px;
+  box-shadow: 0px 8px 20px rgba(0, 0, 0, 0.3);
+  animation: fadeIn 0.3s ease-in-out;
 }
 
-.text-box {
-  margin-top: 5px;
-  color: #cccccc;
-}
-
-svg {
+.description-box h3 {
+  font-size: 20px;
+  margin-bottom: 10px;
   color: var(--yellow);
+  text-align: center;
+}
+
+.description-box p {
+  font-size: 16px;
+  line-height: 1.5;
+  color: #eaeaea;
+  flex-grow: 1;
+}
+
+.description-box .close-button {
+  align-self: flex-end;
+  padding: 10px 15px;
+  background-color: var(--yellow);
+  color: #000;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.description-box .close-button:hover {
+  background-color: orangered;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: scale(0.9);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
 }
 
 .no-results {

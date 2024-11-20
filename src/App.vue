@@ -190,7 +190,7 @@ onUnmounted(() => {
 .sidebar.mobile {
   width: 100%; /* Full width on mobile */
   height: 100%; /* Full height on mobile */
-  position: absolute;
+  position: fixed;
   top: 0;
   left: 0;
 }
@@ -218,6 +218,7 @@ nav a {
   font-size: 20px;
   transition: background-color 0.3s ease;
   border-radius: 8px;
+  max-width: 85%;
 }
 
 nav a.active {
