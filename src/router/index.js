@@ -9,6 +9,7 @@ import OrPage from '@/views/OrPage.vue'
 import PlatinePage from '@/views/PlatinePage.vue'
 import DiamantPage from '@/views/DiamantPage.vue'
 import BronzePage from '@/views/BronzePage.vue'
+import PageNotFoundView from '@/views/PageNotFoundView.vue'
 
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
@@ -62,6 +63,11 @@ const router = createRouter({
       path: '/programmes/Diamant',
       name: 'diamant',
       component: DiamantPage,
+    },
+    {
+      path: '/:catchAll(.*)',
+      name: 'notFound',
+      component: PageNotFoundView,
     },
   ],
 })
