@@ -1,0 +1,74 @@
+@media (max-width: 768px) {
+  /* Adjustments for small screens */
+  #app {
+    flex-direction: column;
+  }
+
+  .sidebar {
+    position: absolute;
+    height: 100%;
+    width: 100%;
+  }
+  .toggle-sidebar.toggle-left {
+    display: none;
+  }
+
+  .toggle-sidebar.toggle-left {
+    left: 20px; /* Adjust position for mobile */
+  }
+
+  .main-content.hidden {
+    display: none; /* Hide main content when sidebar is open */
+  }
+  .main-content {
+    margin-left: 0; /* Reset margin for mobile */
+  }
+  .main-content.expanded {
+    margin-left: 0; /* Ensure no margin adjustments on mobile */
+  }
+
+  /* carrousel */
+  .carousel-item {
+    flex: 1 1 calc(45% - 20px); /* Passe à 2 colonnes */
+  }
+  /* programme */
+  .carousel-item {
+    flex: 1 1 calc(45% - 20px); /* Passe à 2 colonnes */
+  }
+
+  .carousel-controls button {
+    width: 35px;
+    height: 35px;
+    font-size: 20px;
+  }
+  /* semaines*/
+  .week-days {
+    grid-template-columns: 1fr 1fr; /* Two columns */
+  }
+  .navigation-buttons button {
+    font-size: 14px;
+    padding: 8px 12px;
+  }
+  .day {
+    padding: 10px;
+  }
+  .day h3 {
+    font-size: 1em;
+  }
+  .day li {
+    font-size: 12px;
+  }
+
+  .timer-container {
+    max-width: 90%;
+  }
+
+  .timer {
+    width: 100%; /* Adjust the timer width for smaller screens */
+  }
+
+  .timer-controls button {
+    padding: 5px 8px;
+    font-size: 12px;
+  }
+}

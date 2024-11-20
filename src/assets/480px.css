@@ -1,0 +1,65 @@
+@media (max-width: 480px) {
+  /* Adjustments for very small screens */
+  .main-content.hidden {
+    display: none; /* Hide main content when sidebar is open on mobile */
+  }
+
+  .sidebar {
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    border-radius: unset;
+  }
+  .toggle-sidebar.toggle-left {
+    display: none;
+  }
+
+  .toggle-sidebar.toggle-left {
+    left: 20px; /* Adjust position for mobile */
+  }
+  .main-content {
+    margin-left: 0; /* Reset margin for mobile */
+  }
+  .main-content.expanded {
+    margin-left: 0; /* Ensure no margin adjustments on mobile */
+  }
+
+  .main-content.hidden {
+    display: none; /* Hide main content when sidebar is open */
+  }
+  /* carrousel */
+  .carousel-item {
+    flex: 1 1 100%; /* Passe à une colonne */
+  }
+  /* programmes */
+  .carousel-item {
+    flex: 1 1 100%; /* Passe à une colonne */
+  }
+
+  /* semaines */
+  .program-page {
+    padding: 10px;
+    font-size: 14px;
+  }
+  .week-days {
+    grid-template-columns: 1fr; /* Single column */
+  }
+  .navigation-buttons {
+    flex-direction: column;
+    gap: 10px;
+  }
+  .navigation-buttons button {
+    width: 100%;
+    font-size: 12px;
+    padding: 8px;
+  }
+  .day {
+    padding: 8px;
+  }
+  .day h3 {
+    font-size: 0.9em;
+  }
+  .day li {
+    font-size: 12px;
+  }
+}
