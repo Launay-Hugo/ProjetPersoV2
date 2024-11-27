@@ -372,4 +372,25 @@ nav a:hover {
   font-size: 18px;
   color: inherit; /* Match button text color */
 }
+  @media (max-width: 480px) {
+  .timer {
+    max-width: 200px; /* Réduit encore la largeur pour les petits écrans */
+    padding: 10px;
+  }
+
+  .timer-image {
+    max-width: 180px; /* Limite la taille de l'image */
+    margin-bottom: 8px;
+  }
+
+  .time-display {
+    font-size: 16px; /* Réduit encore la taille du texte */
+    padding: 5px 8px;
+  }
+
+  .timer-controls button {
+    font-size: 10px; /* Boutons plus petits pour mobile */
+    padding: 5px 8px;
+  }
+}
 </style>
