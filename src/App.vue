@@ -175,7 +175,7 @@ onUnmounted(() => {
   width: 280px;
   border-radius: 30px;
   background-color: var(--lowgrey);
-  padding: 20px;
+
   display: flex;
   flex-direction: column;
   justify-content: space-between;
@@ -218,7 +218,7 @@ nav a {
   font-size: 20px;
   transition: background-color 0.3s ease;
   border-radius: 8px;
-  max-width: 85%;
+  max-width: 100%;
 }
 
 nav a.active {
@@ -232,56 +232,63 @@ nav a:hover {
 }
 
 /* Timer Styles */
+/* Timer Container */
 .timer-container {
   text-align: center;
-  margin: 20px auto;
-  max-width: 100%;
-  max-height: 100%;
-  overflow: hidden;
-  text-align: center;
+  width: 100%; /* S'assure que le conteneur prend toute la largeur disponible */
+  padding: 10px;
+  box-sizing: border-box; /* Inclut les paddings et marges dans la largeur totale */
+  overflow: hidden; /* Empêche les débordements */
 }
 
+/* Timer Image */
 .timer-image {
   display: block;
-  max-width: 100%; /* Ensure the image is responsive */
-  max-height: 50%;
-  object-fit: contain;
-  height: auto;
-  margin: 0 auto;
-  margin-bottom: 20px; /* Add space below the image */
-  border-radius: 20px;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Optional shadow for aesthetic */
+  width: 100%; /* L'image prend toute la largeur disponible */
+  max-width: 220px; /* Limite la largeur pour éviter les débordements */
+  height: auto; /* Conserve les proportions */
+  object-fit: contain; /* Assure que l'image ne déborde pas */
+  margin: 0 auto 10px; /* Centre l'image avec un espacement en bas */
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Ombre esthétique */
 }
 
+/* Timer Box */
 .timer {
   background: rgba(255, 255, 255, 0.9);
   border-radius: 12px;
-  padding: 15px 20px;
+  padding: 15px;
   text-align: center;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-  display: block;
-  height: auto;
-  width: auto;
+  width: 100%;
+  max-width: 250px; /* S'assure que le chronomètre reste dans la sidebar */
+  margin: 0 auto; /* Centre le chronomètre */
+  box-sizing: border-box; /* Inclut les paddings dans les dimensions */
+  overflow: hidden; /* Empêche tout débordement */
 }
 
+/* Timer Heading */
 .timer h2 {
-  font-size: 18px;
+  font-size: 16px;
   color: #333;
   margin-bottom: 10px;
+  text-align: center;
 }
 
+/* Timer Display */
 .time-display {
-  font-size: 24px;
+  font-size: 20px;
   font-weight: bold;
   color: #333;
   border: 2px solid var(--yellow);
   border-radius: 8px;
-  padding: 5px 10px;
-  margin-bottom: 10px;
+  padding: 8px 15px;
+  margin-bottom: 15px;
   display: inline-block;
   font-family: var(--roboto);
 }
 
+/* Timer Controls Buttons */
 .timer-controls button {
   margin: 5px;
   padding: 8px 12px;
@@ -290,7 +297,7 @@ nav a:hover {
   border: none;
   border-radius: 5px;
   background-color: var(--yellow);
-  color: white;
+  color: #fff;
   transition: background-color 0.3s ease;
 }
 
@@ -313,8 +320,8 @@ nav a:hover {
 }
 
 .main-content.expanded {
-  padding-left: 0; /* Remove left padding when sidebar is hidden */
-  flex: 1.2; /* Slightly expand the content when sidebar is hidden */
+  padding-left: 0;
+  flex: 1.2;
 }
 
 .container {
@@ -324,7 +331,7 @@ nav a:hover {
 }
 
 .main-content.expanded .container {
-  max-width: 80%; /* Make the content take up more space */
+  max-width: 80%;
 }
 
 .container > * {
@@ -354,7 +361,7 @@ nav a:hover {
 }
 
 .toggle-sidebar.toggle-right {
-  left: 0px; /* Positioned closer to the edge of the screen */
+  left: 0px;
 }
 
 .toggle-sidebar:hover {

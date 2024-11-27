@@ -26,6 +26,38 @@
   .main-content.expanded {
     margin-left: 0; /* Ensure no margin adjustments on mobile */
   }
+  .sidebar {
+    width: 100%; /* Sidebar prend toute la largeur */
+    height: auto; /* Ajuste la hauteur automatiquement */
+  }
+
+  .timer-container {
+    width: 100%;
+    padding: 10px;
+    margin: 0 auto;
+    overflow: hidden; /* Empêche les débordements */
+  }
+
+  .timer {
+    max-width: 220px; /* Limite la largeur pour tablette */
+    padding: 10px;
+    margin: 0 auto; /* Centre le chronomètre */
+  }
+
+  .timer-image {
+    max-width: 200px; /* Limite la largeur de l'image */
+    margin-bottom: 10px;
+  }
+
+  .time-display {
+    font-size: 18px; /* Réduit légèrement la taille */
+    padding: 8px 10px;
+  }
+
+  .timer-controls button {
+    font-size: 12px; /* Ajuste la taille des boutons */
+    padding: 6px 8px;
+  }
 
   /* carrousel */
   .carousel-item {
