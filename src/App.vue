@@ -357,7 +357,7 @@ nav a:hover {
 }
 /* Toggle Button Positions */
 .toggle-sidebar.toggle-left {
-  left: 320px;
+  left: 280px;
 }
 
 .toggle-sidebar.toggle-right {
